@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       render json: user, status: 200
     else 
       render json: {error: "there was an error"}
+    end
   end 
 
   private
