@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    users = User.all
+    render json: users, status: 200
   end 
 
   def create
-    @user = User.create(user_params)
+    user = User.create(user_params)
+    if user.create
+      render json: user, status: 200
+    else 
+      render json: {error: "there was an error"}
   end 
 
   private
